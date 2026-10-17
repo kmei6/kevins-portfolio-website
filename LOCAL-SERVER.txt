@@ -1,0 +1,8 @@
+To use the project upload form:
+
+1. Double-click start-site.command and leave its Terminal window open.
+2. Open http://127.0.0.1:8000/projects.html in your browser.
+3. Click the logo, enter the project password, then add the name, JPG thumbnail, and PDF.
+
+Uploads are saved in projects/thumbnails and projects/presentations. Added projects are recorded in projects/projects.json and appear on the Projects page.
+The local server listens only on this computer at 127.0.0.1.

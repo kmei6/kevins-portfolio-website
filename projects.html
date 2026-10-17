@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kevin's Portfolio — Projects</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="clock.js" defer></script>
+  <script src="project-viewer.js" defer></script>
+  <script src="project-admin.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-time"><button class="logo-admin-trigger" id="project-admin-trigger" type="button" aria-label="Open project editor"><img class="logo-image" src="photos/logo.png" alt=""></button><span class="clock">11:43:49 AM</span></div>
+    <nav class="primary-nav" aria-label="Main navigation">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="personal-work.html">Personal Work</a>
+      <a class="nav-link active" href="projects.html" aria-current="page">Projects</a>
+      <a class="nav-link" href="photos.html">Photos</a>
+    </nav>
+    <span class="page-label">PROJECTS</span>
+  </header>
+  <main class="projects-main">
+    <div class="project-grid" aria-label="Project thumbnails">
+      <div class="project-item">
+        <a class="project-card" href="projects/presentations/Tradeshow.pdf" data-title="Tradeshow" aria-label="Open Tradeshow presentation"><img src="projects/thumbnails/Tradeshow.JPG" alt=""></a>
+        <span class="project-nameplate">Tradeshow</span>
+      </div>
+      <div class="project-item">
+        <a class="project-card" href="projects/presentations/Plantpot.pdf" data-title="Plantpot" aria-label="Open Plantpot presentation"><img src="projects/thumbnails/Plantpot.JPG" alt=""></a>
+        <span class="project-nameplate">Plantpot</span>
+      </div>
+      <div class="project-item">
+        <a class="project-card" href="projects/presentations/Light.pdf" data-title="Light" aria-label="Open Light presentation"><img src="projects/thumbnails/workingon.png" alt=""></a>
+        <span class="project-nameplate">Light</span>
+      </div>
+      <div class="project-item">
+        <a class="project-card" href="projects/presentations/workingon.png" data-title="Candy" aria-label="Candy project presentation is in progress"><img src="projects/thumbnails/Candy.jpg" alt=""></a>
+        <span class="project-nameplate">Candy</span>
+      </div>
+      <div class="project-item">
+        <a class="project-card" href="projects/presentations/Knife.pdf" data-title="Knife" aria-label="Open Knife presentation"><img src="projects/thumbnails/Knife.jpg" alt=""></a>
+        <span class="project-nameplate">Knife</span>
+      </div>
+      <div class="project-item">
+        <a class="project-card" href="projects/presentations/Hat%20Box.pdf" data-title="Hatbox" aria-label="Open Hatbox presentation"><img src="projects/thumbnails/workingon.png" alt=""></a>
+        <span class="project-nameplate">Hatbox</span>
+      </div>
+      <div class="project-item">
+        <a class="project-card" href="projects/presentations/Utinsil.pdf" data-title="Utensils" aria-label="Open Utensils presentation"><img src="projects/thumbnails/workingon.png" alt=""></a>
+        <span class="project-nameplate">Utensils</span>
+      </div>
+    </div>
+  </main>
+  <dialog class="project-viewer" id="project-viewer" aria-labelledby="viewer-title">
+    <div class="viewer-toolbar">
+      <h2 id="viewer-title">Project presentation</h2>
+      <button class="viewer-close" type="button" aria-label="Close presentation">Close <span aria-hidden="true">×</span></button>
+    </div>
+    <iframe id="viewer-frame" title="Project presentation viewer"></iframe>
+  </dialog>
+  <dialog class="admin-dialog" id="project-admin" aria-labelledby="admin-dialog-title">
+    <button class="admin-close" id="admin-close" type="button" aria-label="Close project editor">×</button>
+    <section id="login-step">
+      <h2 id="admin-dialog-title">Project editor</h2>
+      <p>Enter the password to add a project.</p>
+      <form id="password-form">
+        <label class="admin-field">Password
+          <input id="admin-password" name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <p class="admin-error" id="password-error" role="alert" aria-live="polite"></p>
+        <button class="admin-submit" type="submit">Continue</button>
+      </form>
+    </section>
+    <section id="upload-step" hidden>
+      <h2>Add a project</h2>
+      <form id="project-upload-form">
+        <label class="admin-field">Project name
+          <input name="name" type="text" required maxlength="80">
+        </label>
+        <label class="admin-field">Project thumbnail (JPG)
+          <input name="thumbnail" type="file" accept=".jpg,.jpeg,image/jpeg" required>
+        </label>
+        <label class="admin-field">Project Pres (PDF)
+          <input name="presentation" type="file" accept=".pdf,application/pdf" required>
+        </label>
+        <p class="admin-note" id="upload-message" role="status" aria-live="polite">Files will be saved in the project folders.</p>
+        <button class="admin-submit" type="submit">Save project</button>
+      </form>
+    </section>
+  </dialog>
+</body>
+</html>
