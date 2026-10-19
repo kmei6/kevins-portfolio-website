@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e9fbf9">
   <title>Kevin's Portfolio — Photos</title>
   <link rel="stylesheet" href="styles.css">
   <script src="clock.js" defer></script>
+  <script src="photos.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -18,6 +20,33 @@
     </nav>
     <span class="page-label">PHOTOS</span>
   </header>
-  <main class="blank-main"></main>
+
+  <main class="photos-main">
+    <section class="photo-gallery" aria-label="Photography gallery">
+      <div class="photo-grid" id="photo-grid" aria-live="polite"></div>
+      <p class="photo-empty" id="photo-empty">Your photo gallery is ready. Add edited photos to <code>photos/gallery/images</code> and list them in <code>photos/gallery/photos.json</code>.</p>
+    </section>
+  </main>
+
+  <dialog class="photo-viewer" id="photo-viewer" aria-label="Photo viewer">
+    <div class="photo-viewer-toolbar">
+      <div class="photo-viewer-heading">
+        <h1 id="photo-viewer-title">Photo</h1>
+        <span id="photo-viewer-count" class="photo-viewer-count"></span>
+      </div>
+      <div class="photo-viewer-actions">
+        <button class="photo-control photo-prev" id="photo-prev" type="button" aria-label="Previous photo">←</button>
+        <button class="photo-control photo-next" id="photo-next" type="button" aria-label="Next photo">→</button>
+        <button class="photo-control photo-close" id="photo-close" type="button" aria-label="Close photo viewer">Close <span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+    <div class="photo-viewer-stage">
+      <img id="photo-viewer-image" alt="">
+    </div>
+    <div class="photo-filmstrip-wrap">
+      <div class="photo-filmstrip" id="photo-filmstrip" role="group" aria-label="All photos"></div>
+    </div>
+    <p class="photo-key-hint">Use ← and → to browse · Esc to close</p>
+  </dialog>
 </body>
 </html>

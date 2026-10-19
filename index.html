@@ -6,6 +6,7 @@
   <title>Kevin's Portfolio — Home</title>
   <link rel="stylesheet" href="styles.css">
   <script src="clock.js" defer></script>
+  <script src="home-scroll.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -22,10 +23,20 @@
     <span class="page-label">HOME</span>
   </header>
 
-  <main class="home-main">
-    <section class="intro" aria-label="Introduction">
-      <img class="portrait-photo" src="photos/kevin.jpg" alt="Kevin">
-      <p>Hi, I’m Kevin. Welcome to my portfolio, where you can explore a collection of my work, projects, and journey as an industrial designer. Along with my academic and professional work, you’ll also find some of my personal projects that showcase my interests, creativity, and ideas outside of the classroom.</p>
+  <main>
+    <section class="home-main" aria-label="Introduction">
+      <div class="intro">
+        <img class="portrait-photo" src="photos/kevin.jpg" alt="Kevin">
+        <p>Hi, I’m Kevin. Welcome to my portfolio, where you can explore a collection of my work, projects, and journey as an industrial designer. Along with my academic and professional work, you’ll also find some of my personal projects that showcase my interests, creativity, and ideas outside of the classroom.</p>
+      </div>
+      <a class="scroll-cue" id="scroll-cue" href="#streaming" aria-label="Scroll for more">
+        <span>Scroll for more</span>
+        <span class="scroll-cue-arrow" aria-hidden="true">↓</span>
+      </a>
+    </section>
+    <section class="streaming-section" id="streaming" aria-labelledby="streaming-title">
+      <p class="streaming-kicker">A LITTLE MORE ABOUT ME</p>
+      <h1 id="streaming-title">Streaming</h1>
     </section>
   </main>
 </body>
