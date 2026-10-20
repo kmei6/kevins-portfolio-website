@@ -8,7 +8,7 @@
   <script src="clock.js" defer></script>
   <script src="home-scroll.js" defer></script>
 </head>
-<body>
+<body class="home-page">
   <header class="site-header">
     <div class="brand-time" aria-label="Kevin's portfolio">
       <img class="logo-image" src="photos/logo.png" alt="Kevin's logo">
@@ -23,21 +23,39 @@
     <span class="page-label">HOME</span>
   </header>
 
-  <main>
+  <main class="home-story" id="home-story">
     <section class="home-main" aria-label="Introduction">
       <div class="intro">
         <img class="portrait-photo" src="photos/kevin.jpg" alt="Kevin">
         <p>Hi, I’m Kevin. Welcome to my portfolio, where you can explore a collection of my work, projects, and journey as an industrial designer. Along with my academic and professional work, you’ll also find some of my personal projects that showcase my interests, creativity, and ideas outside of the classroom.</p>
       </div>
-      <a class="scroll-cue" id="scroll-cue" href="#streaming" aria-label="Scroll for more">
+      <a class="scroll-cue" id="scroll-cue" href="#color-blend" aria-label="Scroll for more">
         <span>Scroll for more</span>
         <span class="scroll-cue-arrow" aria-hidden="true">↓</span>
       </a>
+    </section>
+    <section class="color-blend-section" id="color-blend" aria-label="Blue and white color transition">
+      <div class="linkedin-content">
+        <a class="linkedin-link" href="https://www.linkedin.com/in/kevin-mei-591664309" target="_blank" rel="noopener noreferrer" aria-label="Visit Kevin Mei's LinkedIn profile">
+          <img class="linkedin-icon" src="photos/LinkedIn%20logo.png" alt="LinkedIn">
+        </a>
+        <div class="linkedin-details">
+          <p class="linkedin-copy">Feel free to connect with me on LinkedIn to see some of my educational accomplishments</p>
+          <button class="resume-open" id="resume-open" type="button">Press this to see my resume</button>
+        </div>
+      </div>
     </section>
     <section class="streaming-section" id="streaming" aria-labelledby="streaming-title">
       <p class="streaming-kicker">A LITTLE MORE ABOUT ME</p>
       <h1 id="streaming-title">Streaming</h1>
     </section>
   </main>
+  <dialog class="resume-dialog" id="resume-dialog" aria-labelledby="resume-dialog-title">
+    <div class="resume-dialog-header">
+      <h2 id="resume-dialog-title">Kevin Mei — Resume</h2>
+      <button class="resume-close" id="resume-close" type="button" aria-label="Close resume preview">Close <span aria-hidden="true">×</span></button>
+    </div>
+    <iframe src="photos/Kevin%20Mei%20Resume.pdf" title="Kevin Mei resume preview"></iframe>
+  </dialog>
 </body>
 </html>
