@@ -46,3 +46,17 @@ resumeCloseButton?.addEventListener("click", () => resumeDialog?.close());
 resumeDialog?.addEventListener("click", (event) => {
   if (event.target === resumeDialog) resumeDialog.close();
 });
+
+if (story && streamingSlide && "IntersectionObserver" in window) {
+  const streamingObserver = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      streamingSlide.classList.add("is-visible");
+      streamingObserver.unobserve(streamingSlide);
+    }
+  }, { root: story, threshold: 0.6 });
+
+  streamingObserver.observe(streamingSlide);
+} else {
+  streamingSlide?.classList.add("is-visible");
+}

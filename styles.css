@@ -337,6 +337,9 @@ body {
   font-weight: 600;
   letter-spacing: 2px;
   opacity: .82;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 650ms ease, transform 650ms ease;
 }
 
 .streaming-section h1 {
@@ -346,11 +349,22 @@ body {
   font-size: clamp(38px, 7vw, 76px);
   font-weight: 500;
   letter-spacing: -2px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms ease 120ms, transform 700ms ease 120ms;
+}
+
+.streaming-section.is-visible .streaming-kicker,
+.streaming-section.is-visible h1 {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .linkedin-link { transition: none; }
   .linkedin-link:hover, .linkedin-link:focus-visible { transform: none; }
+  .streaming-section .streaming-kicker,
+  .streaming-section h1 { opacity: 1; transform: none; transition: none; }
 }
 
 .intro {
@@ -694,6 +708,10 @@ body {
 }
 
 .project-card:hover img, .project-card:focus-visible img { opacity: .38; }
+.project-card[data-hover-frames]:hover img,
+.project-card[data-hover-frames]:focus-visible img { opacity: .78; }
+.project-card[data-hover-frames]:hover::before,
+.project-card[data-hover-frames]:focus-visible::before { background: rgba(233, 251, 249, .34); }
 .project-card:hover::before, .project-card:focus-visible::before,
 .project-card:hover::after, .project-card:focus-visible::after { opacity: 1; }
 
