@@ -6,6 +6,7 @@
   <title>Kevin's Portfolio — Personal Work</title>
   <link rel="stylesheet" href="styles.css">
   <script src="clock.js" defer></script>
+  <script src="personal-work.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -18,6 +19,24 @@
     </nav>
     <span class="page-label">PERSONAL WORK</span>
   </header>
-  <main class="blank-main"></main>
+  <main class="projects-main personal-work-main">
+    <p class="personal-work-empty" id="personal-work-empty">Personal work will appear here when you add projects.</p>
+    <div class="project-grid" id="personal-work-grid" aria-label="Personal work thumbnails"></div>
+  </main>
+  <dialog class="personal-work-viewer" id="personal-work-viewer" aria-labelledby="personal-work-viewer-title">
+    <button class="viewer-close personal-work-viewer-close" id="personal-work-viewer-close" type="button" aria-label="Close personal work preview">Close <span aria-hidden="true">×</span></button>
+    <div class="personal-work-viewer-layout">
+      <section class="personal-work-carousel" aria-label="Project images">
+        <button class="personal-work-carousel-arrow personal-work-previous" id="personal-work-previous" type="button" aria-label="Previous image">‹</button>
+        <img id="personal-work-current-image" src="" alt="">
+        <button class="personal-work-carousel-arrow personal-work-next" id="personal-work-next" type="button" aria-label="Next image">›</button>
+        <span class="personal-work-image-count" id="personal-work-image-count" aria-live="polite"></span>
+      </section>
+      <section class="personal-work-details">
+        <h2 id="personal-work-viewer-title"></h2>
+        <p id="personal-work-viewer-summary"></p>
+      </section>
+    </div>
+  </dialog>
 </body>
 </html>

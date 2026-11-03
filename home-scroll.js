@@ -2,6 +2,7 @@ const story = document.querySelector("#home-story");
 const scrollCue = document.querySelector("#scroll-cue");
 const blendSlide = document.querySelector("#color-blend");
 const streamingSlide = document.querySelector("#streaming");
+const introDelay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 2800;
 
 if (story && blendSlide && streamingSlide) {
   let updateQueued = false;
@@ -48,15 +49,22 @@ resumeDialog?.addEventListener("click", (event) => {
 });
 
 if (story && streamingSlide && "IntersectionObserver" in window) {
+  let introTimer = null;
   const streamingObserver = new IntersectionObserver((entries) => {
     for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      streamingSlide.classList.add("is-visible");
-      streamingObserver.unobserve(streamingSlide);
+      if (entry.isIntersecting) {
+        streamingSlide.classList.add("is-visible");
+        window.clearTimeout(introTimer);
+        introTimer = window.setTimeout(() => streamingSlide.classList.add("show-channel"), introDelay);
+      } else {
+        window.clearTimeout(introTimer);
+        streamingSlide.classList.remove("show-channel", "is-visible");
+      }
     }
   }, { root: story, threshold: 0.6 });
 
   streamingObserver.observe(streamingSlide);
 } else {
   streamingSlide?.classList.add("is-visible");
+  window.setTimeout(() => streamingSlide?.classList.add("show-channel"), introDelay);
 }
