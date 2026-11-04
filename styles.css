@@ -720,7 +720,6 @@ body {
 }
 
 .personal-work-main { position: relative; }
-.personal-work-main .project-grid { align-content: start; }
 
 .personal-work-empty {
   position: absolute;
