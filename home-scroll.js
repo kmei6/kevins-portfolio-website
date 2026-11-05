@@ -1,8 +1,9 @@
 const story = document.querySelector("#home-story");
 const scrollCue = document.querySelector("#scroll-cue");
+const blendScrollCue = document.querySelector("#blend-scroll-cue");
 const blendSlide = document.querySelector("#color-blend");
 const streamingSlide = document.querySelector("#streaming");
-const introDelay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 2800;
+const introDelay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1950;
 
 if (story && blendSlide && streamingSlide) {
   let updateQueued = false;
@@ -22,6 +23,12 @@ if (story && blendSlide && streamingSlide) {
       const cueOpacity = Math.max(0, 1 - story.scrollTop / (slideHeight / 2));
       scrollCue.style.opacity = cueOpacity;
       scrollCue.style.pointerEvents = cueOpacity > 0.05 ? "auto" : "none";
+    }
+
+    if (blendScrollCue) {
+      const cueOpacity = Math.max(0, Math.min(1, 1 - (slidePosition - 1) * 2));
+      blendScrollCue.style.opacity = cueOpacity;
+      blendScrollCue.style.pointerEvents = cueOpacity > 0.05 ? "auto" : "none";
     }
 
     updateQueued = false;

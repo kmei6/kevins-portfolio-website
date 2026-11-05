@@ -141,6 +141,7 @@ body {
 
 .scroll-cue {
   position: absolute;
+  z-index: 3;
   left: 50%;
   bottom: 25px;
   display: grid;
@@ -373,7 +374,7 @@ body {
 }
 
 .streaming-section.is-visible .streaming-intro {
-  animation: streaming-intro-exit 700ms ease 2.1s forwards;
+  animation: streaming-intro-exit 550ms ease 1.4s forwards;
 }
 
 .streaming-channel {
@@ -395,6 +396,7 @@ body {
 }
 
 .twitch-preview {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
