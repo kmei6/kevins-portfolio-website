@@ -55,6 +55,18 @@ resumeDialog?.addEventListener("click", (event) => {
   if (event.target === resumeDialog) resumeDialog.close();
 });
 
+if (story && blendSlide && "IntersectionObserver" in window) {
+  const contactSlideObserver = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      blendSlide.classList.toggle("is-visible", entry.isIntersecting);
+    }
+  }, { root: story, threshold: 0.6 });
+
+  contactSlideObserver.observe(blendSlide);
+} else {
+  blendSlide?.classList.add("is-visible");
+}
+
 if (story && streamingSlide && "IntersectionObserver" in window) {
   let introTimer = null;
   const streamingObserver = new IntersectionObserver((entries) => {
