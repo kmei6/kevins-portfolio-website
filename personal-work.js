@@ -18,6 +18,8 @@ function openPersonalWork(item) {
   activeImages = item.images.length ? item.images : [item.thumbnail];
   activeImageIndex = 0;
   showPersonalWorkImage();
+  const siteHeader = document.querySelector(".site-header");
+  personalWorkDialog.style.setProperty("--viewer-top", `${siteHeader?.getBoundingClientRect().height || 62}px`);
   personalWorkDialog.showModal();
 }
 

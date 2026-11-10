@@ -62,6 +62,8 @@ document.querySelector(".project-grid").addEventListener("click", (event) => {
   event.preventDefault();
   projectViewerTitle.textContent = card.dataset.title || "Project presentation";
   projectViewerFrame.src = card.href;
+  const siteHeader = document.querySelector(".site-header");
+  projectViewer.style.setProperty("--viewer-top", `${siteHeader?.getBoundingClientRect().height || 62}px`);
   projectViewer.showModal();
 });
 
